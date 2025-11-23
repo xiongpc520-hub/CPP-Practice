@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+         
+void value(int a, int b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+    cout<<"value:" << a << "  " << b << endl;
+}
+void address(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+    cout <<"address:" << *a << "  " << *b << endl;
+}
+void ref(int& a, int& b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+    cout << "ref:" << a << "  " << b << endl;
+}
+int main()
+{
+    int a = 10, b = 20;
+    
+    value(a, b);
+    cout << a << "  " << b << endl;
+    address(&a, &b);
+    cout << a << "  " << b << endl;
+    int c = 10, d = 20;
+    ref(c, d);
+    cout << c << "  " << d << endl;
+    return 0;
+}
