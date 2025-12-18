@@ -1,0 +1,45 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+class rectangle {
+private:
+	double l, w, r;
+public:
+	void re() {
+		cout << "--- rectangle area calculator ---" << endl;
+		cout << "enter the length: ";
+		cin >> l;
+		cout << "\nenter the width: ";
+		cin >> w;
+		cout << "\n--- Calculation Result ---" << endl;
+		cout << "length: " << l << endl;
+		cout << "width: " << w << endl;
+		cout << "area r:" << l * w << endl;
+	}
+
+};
+class circle {
+private:
+	int ra;
+	double const pi = 3.1415926;
+public:
+	void ci() {
+		cout << "--- circle area ---" << endl;
+		cout << "enter the ra: ";
+		cin >> ra;
+		cout << "\n--- circle area result ---" << endl;
+		cout << fixed << setprecision(2);
+		cout << "area of circle is: " << pi * ra * ra;
+	}
+
+
+};
+int main() {
+	rectangle r;
+	r.re();
+	circle c;
+	c.ci();
+
+	return 0;
+}
