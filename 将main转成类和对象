@@ -1,0 +1,169 @@
+#include <iostream>
+#include <vector>
+#include<string>
+using namespace std;
+
+int main()
+{
+    vector<string> list; 
+    
+    string name, studentid, status, cgpa;
+    
+    string st; 
+    
+    bool running = true;
+    
+    const float REQUIRED_CGPA = 3.50;
+    
+    
+    while(running) {
+        cout << "|| THIS IS STUDENT REGISTRATION SYSTEM ||" << "\n" 
+             << "Enter 1 to proceed, or 2 to exit or to stop\n"; 
+        
+        if (!(cin >> st)) {
+             cerr << "Error reading input. Exiting.\n";
+             break;
+        }
+        
+        if (st == "1") {
+            
+            cout << "Insert name: ";
+            cin >> name; 
+            
+            cout << "insert student ID: ";
+            cin >> studentid;
+            
+            cout << "insert student status: ";
+            cin >> status;
+            
+            cout << "insert student CGPA: ";
+            cin >> cgpa;
+            
+            list.push_back(name);
+            list.push_back(studentid);
+            list.push_back(status);
+            list.push_back(cgpa);
+            
+            
+            cout << "\n--- Students with CGPA > " << REQUIRED_CGPA << " ---\n";
+            int amount = 1; 
+            
+            for (size_t x = 0; x < list.size(); x += 4) {
+                
+                try {
+                    if (stof(list[x + 3]) > REQUIRED_CGPA) {
+                        
+                        cout << amount << ": " << list[x] << ", " << list[x + 3] << "\n";
+                        amount++;
+                    }
+                } catch (const std::exception& e) {
+                    cerr << "Warning: Could not convert CGPA for student at index " << x << ". Data: " << list[x] << ", " << list[x+3] << ". Error: " << e.what() << "\n";
+                }
+            }
+            //Carefull with this bolded line when copied it create newspace, 
+//so maybe need to adjust....
+            cout << "\n\n\n";
+
+        } else if (st == "2") {
+            running = false; 
+        } else {
+            cout << "invalid input, try again...\n\n";
+        }
+    } 
+    
+    size_t num_students = list.size() / 4;
+    cout << "Number of students registered: " << num_students << "\n";
+    
+    return 0; 
+}
+
+//将main转成类和对象
+
+
+#include <iostream>
+#include <vector>
+#include<string>
+using namespace std;
+
+class student {
+private:
+    
+    const float REQUIRED_CGPA = 3.50;
+    vector<string> list;
+    void s() {
+        string name, studentid, status, cgpa;
+        cout << "Insert name: ";
+        cin >> name;
+
+        cout << "insert student ID: ";
+        cin >> studentid;
+
+        cout << "insert student status: ";
+        cin >> status;
+
+        cout << "insert student CGPA: ";
+        cin >> cgpa;
+
+        list.push_back(name);
+        list.push_back(studentid);
+        list.push_back(status);
+        list.push_back(cgpa);
+  
+        cout << "\n--- Students with CGPA > " << REQUIRED_CGPA << " ---\n";
+        int amount = 1;
+
+        for (size_t x = 0; x < list.size(); x += 4) {
+
+            try {
+                if (stof(list[x + 3]) > REQUIRED_CGPA) {
+
+                    cout << amount << ": " << list[x] << ", " << list[x + 3] << "\n";
+                    amount++;
+                }
+            }
+            catch (const std::exception& e) {
+                cerr << "Warning: Could not convert CGPA for student at index " << x << ". Data: " << list[x] << ", " << list[x + 3] << ". Error: " << e.what() << "\n";
+            }
+        }
+        cout << "\n\n\n";
+    }
+    void t() {
+        size_t num_students = list.size() / 4;
+        cout << "Number of students registered: " << num_students << "\n";
+    
+    }
+public:
+    void b() {
+        string st;
+
+        bool running = true;
+        while (running) {
+            cout << "|| THIS IS STUDENT REGISTRATION SYSTEM ||" << "\n"
+                << "Enter 1 to proceed, or 2 to exit or to stop\n";
+
+            if (!(cin >> st)) {
+                cerr << "Error reading input. Exiting.\n";
+                break;
+            }
+
+            if (st == "1") {
+                s();
+            }
+            else if (st == "2") {
+                running = false;
+            }
+            else {
+                cout << "invalid input, try again...\n\n";
+            }
+        }
+        t();
+    }
+};
+
+int main()
+{
+    student res;
+    res.b();
+    return 0;
+}
+
