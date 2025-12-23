@@ -1,0 +1,116 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+//class java {
+//public:
+//	void header()
+//	{
+//		cout << "iadidjada" << endl;
+//	}
+//	void footer() {
+//		cout << "asdadaw dibu" << endl;
+//	}
+//	void left() {
+//		cout << "dsjfaosjo zuoce" << endl;
+//	}
+//	void content()
+//	{
+//		cout << "java hshduash" << endl;
+//	}
+//	
+//};
+//class python {
+//public:
+//	void header()
+//	{
+//		cout << "iadidjada" << endl;
+//	}
+//	void footer() {
+//		cout << "asdadaw dibu" << endl;
+//	}
+//	void left() {
+//		cout << "dsjfaosjo zuoce" << endl;
+//	}
+//	void content()
+//	{
+//		cout << "python hshduash" << endl;
+//	}
+//
+//};
+//class cpp {
+//public:
+//	void header()
+//	{
+//		cout << "iadidjada" << endl;
+//	}
+//	void footer() {
+//		cout << "asdadaw dibu" << endl;
+//	}
+//	void left() {
+//		cout << "dsjfaosjo zuoce" << endl;
+//	}
+//	void content()
+//	{
+//		cout << "cpp hshduash" << endl;
+//	}
+//
+//};
+class basepage {
+public:
+		void header()
+	{
+		cout << "iadidjada" << endl;
+	}
+	void footer() {
+		cout << "asdadaw dibu" << endl;
+	}
+	void left() {
+		cout << "dsjfaosjo zuoce" << endl;
+	}
+};
+class java :public basepage {
+public:
+	void content() {
+		cout << "java!" << endl;
+	}
+};
+class python :public basepage {
+public:
+	void content() {
+		cout << "python!" << endl;
+	}
+};
+class cpp :public basepage {
+public:
+	void content() {
+		cout << "cpp!" << endl;
+	}
+};
+void test1() {
+	cout << "java:" << endl;
+	java ja;
+	ja.header();
+		ja.footer();
+		ja.left();
+		ja.content();
+		cout << "--------------------" << endl;
+		cout << "python:"<<endl;
+		python py;
+		py.header();
+		py.footer();
+		py.left();
+		py.content();
+		cout << "----------------------" << endl;
+		cout << "cpp:" << endl;
+		cpp cp;
+		cp.header();
+		cp.footer();
+		cp.left();
+		cp.content();
+}
+
+int main() {
+	test1();
+	return 0;
+}
